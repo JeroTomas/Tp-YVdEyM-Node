@@ -1,0 +1,9 @@
+// saludo.js
+function saludar(nombre) {
+  console.log(`Hola ${nombre}!`);
+}
+module.exports = { saludar };
+
+// main.js
+const { saludar } = require('./saludo.js');
+saludar('Franco');
