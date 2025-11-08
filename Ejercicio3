@@ -1,0 +1,10 @@
+// server.js
+import dotenv from 'dotenv';
+dotenv.config();
+
+console.log(`Servidor iniciado en el puerto ${process.env.PORT} en modo ${process.env.MODE}`);
+
+
+// .env
+PORT=8080
+MODE=dev
