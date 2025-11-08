@@ -1,0 +1,26 @@
+// app.js
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { config } from './config.js';
+
+yargs(hideBin(process.argv))
+  .command('saludo', 'Saluda al usuario', {
+    saludo: {
+      describe: 'Mensaje de saludo',
+      demandOption: true,
+      type: 'string'
+    }
+  }, (argv) => {
+    console.log(`Servidor corriendo en el puerto ${config.port} (modo ${config.mode}): ${argv.saludo}`);
+  })
+  .help()
+  .argv;
+
+// config.js
+import dotenv from 'dotenv';
+dotenv.config();
+
+export const config = {
+  port: process.env.PORT,
+  mode: process.env.MODE
+};
