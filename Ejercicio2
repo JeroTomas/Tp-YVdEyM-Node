@@ -1,0 +1,24 @@
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+
+yargs(hideBin(process.argv))
+  .command('saludo', 'Saluda al usuario', {
+    nombre: {
+      describe: 'Tu nombre',
+      demandOption: true,
+      type: 'string'
+    },
+    edad: {
+      describe: 'Tu edad',
+      demandOption: true,
+      type: 'number'
+    }
+  }, (argv) => {
+    if (argv.edad <= 0) {
+      console.error('ERROR... La edad debe ser mayor que 0');
+    } else {
+      console.log(`Hola ${argv.nombre}, tenés ${argv.edad} años.`);
+    }
+  })
+  .help()
+  .argv;
