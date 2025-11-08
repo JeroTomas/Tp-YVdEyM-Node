@@ -1,0 +1,8 @@
+// saludo.js
+export function saludar(nombre) {
+  console.log(`Hola ${nombre}!`);
+}
+
+// main.js
+import { saludar } from './saludo.js';
+saludar('Franco');
